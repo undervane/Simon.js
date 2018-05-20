@@ -1,43 +1,4 @@
 
-// Please refer to 'main.md' for documentation
-
-/// MARK: Objects
-
-class Game {
-
-    constructor(){
-
-        this.colors = this.getColors();
-        this.steps = 0;
-        this.current = [];
-        this.choices = [];
-        this.i = 0;
-        this.listening = false;
-        this.playing = false;
-
-    }
-
-    // Call this to get game colors from HTML
-
-    getColors(){
-
-        let elements = $(".box");
-        let colors = [];
-    
-        for (let element of elements){
-    
-            let id = $(element).attr("id");
-
-            colors.push(id);
-    
-        }
-    
-        return colors;
-    
-    }
-
-}
-
 /// MARK: Styling Function
 
 /* Allows the game box to resize if 
@@ -75,7 +36,6 @@ function countDown(){
         game.playing = true;
 
     }
-
 }
 
 // Call this function every time the 
@@ -106,9 +66,7 @@ function play(){
             setTimeout(function(){reverse(i)}, 300, 'i');
 
         }, 600 * i + 300, 'i');
-
     }
-
 }
 
 // This makes a color highlighted
@@ -146,7 +104,6 @@ function reverse(i){
         $('.box').toggleClass('listening');
 
     }   
-
 }
 
 // Adds the current game
@@ -197,7 +154,6 @@ function addChoice(color){
         evaluate();
 
     }
-
 }
 
 // Called every time user adds a choice, and
@@ -222,8 +178,11 @@ function evaluate(){
         success();
 
     }
-
 }
+
+// Whenever all answers are correct, 
+// creates the center tick animation,
+// and plays the success audio
 
 function success(){
 
@@ -269,9 +228,11 @@ function gameOver(){
 
 }
 
+/// END Game Functions
+
 /* ---- CODE EXECUTION STARTS HERE ---- */
 
-// Document - OnLoad
+// On Load
 
 $(function() {
 
@@ -279,7 +240,7 @@ $(function() {
     
 });
 
-// Game Session
+// Create a Game Session
 
 var game = new Game;
 
