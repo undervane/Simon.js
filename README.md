@@ -1,3 +1,3 @@
 # Simon.js
 
-### A classic game, made in HTML, CSS & JS
+### A classic game, made with HTML, CSS & JS
